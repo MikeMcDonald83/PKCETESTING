@@ -3,7 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ['main']
-  workflow_dispatch:
 
 jobs:
   build_site:
@@ -33,9 +32,9 @@ jobs:
         run: |
           npm run build
 
-                - name: Upload Artifacts
-                  uses: actions/upload-pages-artifact@v3
-                  with:
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
           # this should match the `pages` option in your adapter-static options
           path: 'build/'
 
